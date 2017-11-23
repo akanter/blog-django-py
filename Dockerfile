@@ -20,4 +20,9 @@ ENV S2I_SCRIPTS_PATH=/usr/libexec/s2i \
 
 RUN /tmp/scripts/assemble
 
+RUN yum -y update &&
+    yum -y install openssh-server openssh-clients &&
+    yum -y install wget
+    yum -y install tar
+
 CMD [ "/tmp/scripts/run" ]
